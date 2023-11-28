@@ -63,6 +63,8 @@ class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
         answerTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding).isActive = true
     }
     
+    // MARK: - UITextField Delegate
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         if let text = textField.text, !text.isEmpty {
@@ -75,7 +77,13 @@ class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
     // MARK: - AnyView
     
     func didTransform(string: String) {
-        answerTextView.text = string
+        if !Thread.isMainThread {
+            DispatchQueue.main.async { [weak self] in
+                self?.answerTextView.text = string
+            }
+        } else {
+            self.answerTextView.text = string
+        }
     }
     
 }
