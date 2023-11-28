@@ -7,17 +7,25 @@
 
 import Foundation
 
-protocol AnyPresenter: AnyObject {
+protocol AnyPresenter {
     var view: AnyView? { get set }
     func onTextFieldShouldReturn(text: String)
+    func didTransform(string: String)
 }
 
 class Presenter: AnyPresenter {
-    
+
+    var interactor: AnyInteractor?
     var view: AnyView?
     
     func onTextFieldShouldReturn(text: String) {
-        print("text: ",text)
+        
+        interactor?.transform(string: text)
+    }
+    
+    func didTransform(string: String) {
+        
+        view?.didTransform(string: string)
     }
     
 }

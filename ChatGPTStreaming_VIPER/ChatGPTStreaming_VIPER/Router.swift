@@ -14,9 +14,17 @@ protocol AnyRouter {
 class Router: AnyRouter {
     
     static func start() -> RootViewController {
-        let view = RootViewController()
+        
+        let interactor = Interactor()
         let presenter = Presenter()
+        
+        interactor.presenter = presenter
+        presenter.interactor = interactor
+        
+        let view = RootViewController()
         view.presenter = presenter
+        presenter.view = view
+
         return view
     }
     

@@ -7,11 +7,13 @@
 
 import UIKit
 
-protocol AnyView: AnyObject {
-    var presenter: AnyPresenter? { get set }
+protocol AnyView {
+    func didTransform(string: String)
 }
 
 class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
+    
+    // MARK: - Properties
     
     var presenter: AnyPresenter?
     
@@ -31,7 +33,9 @@ class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
-
+    
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -40,6 +44,8 @@ class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
         
         questionTextField.delegate = self
     }
+    
+    // MARK: - Setup Layout
     
     private func setupLayout() {
         
@@ -64,6 +70,12 @@ class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
         }
         
         return true
+    }
+    
+    // MARK: - AnyView
+    
+    func didTransform(string: String) {
+        answerTextView.text = string
     }
     
 }
