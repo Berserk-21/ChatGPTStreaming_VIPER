@@ -14,15 +14,48 @@ protocol AnyView: AnyObject {
 class RootViewController: UIViewController, AnyView {
     
     var presenter: AnyPresenter?
+    
+    private let padding: CGFloat = 24.0
+    
+    private let answerTextView: UITextView = {
+        let tv = UITextView()
+        tv.text = "Bonjour, que puis-je faire pour vous ?"
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        return tv
+    }()
+    
+    private let questionTextField: UITextField = {
+        let tf = UITextField()
+        tf.placeholder = "Poser une question à chatGPT.."
+        tf.backgroundColor = .white
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        return tf
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        view.backgroundColor = .red
-        
         presenter?.onDeveloperTest()
+        
+        setupLayout()
     }
-
+    
+    private func setupLayout() {
+        
+        view.backgroundColor = .lightGray
+        
+        view.addSubview(questionTextField)
+        questionTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: padding).isActive = true
+        questionTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        questionTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -padding).isActive = true
+        
+        view.addSubview(answerTextView)
+        answerTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: padding).isActive = true
+        answerTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -padding).isActive = true
+        answerTextView.topAnchor.constraint(equalTo: questionTextField.bottomAnchor, constant: padding).isActive = true
+        answerTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding).isActive = true
+    }
+    
 }
 
