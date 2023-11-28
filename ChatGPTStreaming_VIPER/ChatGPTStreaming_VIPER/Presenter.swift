@@ -9,23 +9,21 @@ import Foundation
 
 protocol AnyPresenter {
     var view: AnyView? { get set }
+    var router: AnyRouter? { get set }
     func onTextFieldShouldReturn(text: String)
-    func didTransform(string: String)
 }
 
 class Presenter: AnyPresenter {
 
+    var router: AnyRouter?
     var interactor: AnyInteractor?
-    var view: AnyView?
+    weak var view: AnyView?
     
     func onTextFieldShouldReturn(text: String) {
         
-        interactor?.transform(string: text)
-    }
-    
-    func didTransform(string: String) {
-        
-        view?.didTransform(string: string)
+        interactor?.transform(string: text, completion: { [weak self] transformedText in
+            self?.view?.didTransform(string: transformedText)
+        })
     }
     
 }

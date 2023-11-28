@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol AnyView {
+protocol AnyView: AnyObject {
     func didTransform(string: String)
 }
 

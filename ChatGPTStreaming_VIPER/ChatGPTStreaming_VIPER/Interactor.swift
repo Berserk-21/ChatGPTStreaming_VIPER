@@ -8,15 +8,17 @@
 import Foundation
 
 protocol AnyInteractor: AnyObject {
-    func transform(string: String)
+    func transform(string: String, completion: @escaping (String) -> Void)
 }
 
 class Interactor: AnyInteractor {
     
     var presenter: AnyPresenter?
     
-    func transform(string: String) {
+    func transform(string: String, completion: @escaping (String) -> Void) {
         
-        presenter?.didTransform(string: string.uppercased())
+        let transformedString = string.uppercased()
+        
+        completion(transformedString)
     }
 }

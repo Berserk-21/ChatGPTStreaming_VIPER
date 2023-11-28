@@ -17,9 +17,11 @@ class Router: AnyRouter {
         
         let interactor = Interactor()
         let presenter = Presenter()
+        let router = Router()
         
         interactor.presenter = presenter
         presenter.interactor = interactor
+        presenter.router = router
         
         let view = RootViewController()
         view.presenter = presenter
