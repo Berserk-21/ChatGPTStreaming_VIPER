@@ -11,7 +11,7 @@ protocol AnyView: AnyObject {
     var presenter: AnyPresenter? { get set }
 }
 
-class RootViewController: UIViewController, AnyView {
+class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
     
     var presenter: AnyPresenter?
     
@@ -36,9 +36,9 @@ class RootViewController: UIViewController, AnyView {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        presenter?.onDeveloperTest()
-        
         setupLayout()
+        
+        questionTextField.delegate = self
     }
     
     private func setupLayout() {
@@ -55,6 +55,15 @@ class RootViewController: UIViewController, AnyView {
         answerTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -padding).isActive = true
         answerTextView.topAnchor.constraint(equalTo: questionTextField.bottomAnchor, constant: padding).isActive = true
         answerTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding).isActive = true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if let text = textField.text, !text.isEmpty {
+            presenter?.onTextFieldShouldReturn(text: text)
+        }
+        
+        return true
     }
     
 }

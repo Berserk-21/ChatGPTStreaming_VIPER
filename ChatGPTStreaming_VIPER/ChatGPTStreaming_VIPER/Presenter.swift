@@ -9,14 +9,15 @@ import Foundation
 
 protocol AnyPresenter: AnyObject {
     var view: AnyView? { get set }
-    func onDeveloperTest()
+    func onTextFieldShouldReturn(text: String)
 }
 
 class Presenter: AnyPresenter {
     
     var view: AnyView?
     
-    func onDeveloperTest() {
-        print("onDeveloperTest is running")
+    func onTextFieldShouldReturn(text: String) {
+        print("text: ",text)
     }
+    
 }
