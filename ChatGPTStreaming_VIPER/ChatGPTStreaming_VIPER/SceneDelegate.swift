@@ -21,8 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.makeKeyAndVisible()
         
-        let router = Router()
-        window?.rootViewController = UINavigationController(rootViewController: router.start()) 
+        window?.rootViewController = Router().start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

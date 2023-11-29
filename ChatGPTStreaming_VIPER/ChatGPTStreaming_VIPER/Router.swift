@@ -6,14 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 protocol AnyRouter {
-    func start() -> RootViewController
+    func start() -> UINavigationController
 }
 
 class Router: AnyRouter {
     
-    func start() -> RootViewController {
+    func start() -> UINavigationController {
         
         let interactor = Interactor()
         let router = Router()
@@ -23,7 +24,8 @@ class Router: AnyRouter {
         let view = RootViewController(presenter: presenter)
         presenter.view = view
 
-        return view
+        let navigationController = UINavigationController(rootViewController: view)
+        return navigationController
     }
     
 }
