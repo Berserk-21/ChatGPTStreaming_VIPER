@@ -9,12 +9,12 @@ import Foundation
 import UIKit
 
 protocol AnyRouter {
-    func start() -> UINavigationController
+    func start() -> UIViewController
 }
 
 class Router: AnyRouter {
     
-    func start() -> UINavigationController {
+    func start() -> UIViewController {
         
         let interactor = Interactor()
         let router = Router()
