@@ -61,15 +61,19 @@ class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
         view.backgroundColor = .lightGray
         
         view.addSubview(questionTextField)
-        questionTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: padding).isActive = true
-        questionTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        questionTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -padding).isActive = true
-        
         view.addSubview(answerTextView)
-        answerTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: padding).isActive = true
-        answerTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -padding).isActive = true
-        answerTextView.topAnchor.constraint(equalTo: questionTextField.bottomAnchor, constant: padding).isActive = true
-        answerTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding).isActive = true
+
+        let constraints: [NSLayoutConstraint] = [
+            questionTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: padding),
+            questionTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            questionTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -padding),
+            answerTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: padding),
+            answerTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -padding),
+            answerTextView.topAnchor.constraint(equalTo: questionTextField.bottomAnchor, constant: padding),
+            answerTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding)
+        ]
+        
+        NSLayoutConstraint.activate(constraints)
     }
     
     // MARK: - UITextField Delegate
