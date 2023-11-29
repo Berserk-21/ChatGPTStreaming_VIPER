@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         router = Router()
         
-        window?.rootViewController = router?.start()
+        window?.rootViewController = router?.getRootView()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
