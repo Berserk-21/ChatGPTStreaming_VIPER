@@ -19,7 +19,6 @@ class Router: AnyRouter {
         let presenter = Presenter()
         let router = Router()
         
-        interactor.presenter = presenter
         presenter.interactor = interactor
         presenter.router = router
         
