@@ -19,7 +19,7 @@ class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
         static let padding: CGFloat = 24.0
     }
     
-    var presenter: AnyPresenter
+    private let presenter: AnyPresenter
     
     private let answerTextView: UITextView = {
         let tv = UITextView()

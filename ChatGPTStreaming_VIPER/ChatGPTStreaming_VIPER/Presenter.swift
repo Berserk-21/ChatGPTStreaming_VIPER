@@ -13,8 +13,8 @@ protocol AnyPresenter {
 
 class Presenter: AnyPresenter {
 
-    var router: AnyRouter
-    var interactor: AnyInteractor
+    private let router: AnyRouter
+    private let interactor: AnyInteractor
     
     weak var view: AnyView?
     
