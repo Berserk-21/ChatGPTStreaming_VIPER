@@ -91,8 +91,8 @@ class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
     
     func didTransform(string: String) {
         if !Thread.isMainThread {
-            DispatchQueue.main.async { [weak self] in
-                self?.answerTextView.text = string
+            DispatchQueue.main.async {
+                self.answerTextView.text = string
             }
         } else {
             self.answerTextView.text = string
