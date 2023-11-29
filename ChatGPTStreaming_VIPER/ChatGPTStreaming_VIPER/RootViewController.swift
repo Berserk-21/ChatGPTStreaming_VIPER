@@ -15,6 +15,8 @@ class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
     
     // MARK: - Properties
     
+    private var padding: CGFloat = 24.0
+    
     var presenter: AnyPresenter
     
     private let answerTextView: UITextView = {
@@ -62,13 +64,13 @@ class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
         view.addSubview(answerTextView)
 
         let constraints: [NSLayoutConstraint] = [
-            questionTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: ViewSpacing.padding),
+            questionTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: padding),
             questionTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            questionTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -ViewSpacing.padding),
-            answerTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: ViewSpacing.padding),
-            answerTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -ViewSpacing.padding),
-            answerTextView.topAnchor.constraint(equalTo: questionTextField.bottomAnchor, constant: ViewSpacing.padding),
-            answerTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -ViewSpacing.padding)
+            questionTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -padding),
+            answerTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: padding),
+            answerTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -padding),
+            answerTextView.topAnchor.constraint(equalTo: questionTextField.bottomAnchor, constant: padding),
+            answerTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding)
         ]
         
         NSLayoutConstraint.activate(constraints)
