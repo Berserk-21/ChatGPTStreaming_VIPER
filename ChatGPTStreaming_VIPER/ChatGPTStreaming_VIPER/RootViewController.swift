@@ -34,6 +34,8 @@ class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
         return tf
     }()
     
+    // MARK: - Life Cycle
+    
     init(presenter: AnyPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
@@ -42,8 +44,6 @@ class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +54,7 @@ class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
         questionTextField.delegate = self
     }
     
-    // MARK: - Setup Layout
+    // MARK: - Private methods
     
     private func setupLayout() {
         
