@@ -13,8 +13,6 @@ protocol AnyInteractor: AnyObject {
 
 class Interactor: AnyInteractor {
     
-    var presenter: AnyPresenter?
-    
     func transform(string: String, completion: @escaping (String) -> Void) {
         
         let transformedString = string.uppercased()
