@@ -8,7 +8,6 @@
 import Foundation
 
 protocol AnyPresenter {
-    var view: AnyView? { get set }
     func onTextFieldShouldReturn(text: String)
 }
 

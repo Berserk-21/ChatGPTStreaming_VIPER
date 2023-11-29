@@ -15,7 +15,7 @@ class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
     
     // MARK: - Properties
     
-    var presenter: AnyPresenter?
+    var presenter: AnyPresenter
     
     private let padding: CGFloat = 24.0
     
@@ -33,6 +33,15 @@ class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
+    
+    init(presenter: AnyPresenter) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Life Cycle
     
@@ -68,7 +77,7 @@ class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         if let text = textField.text, !text.isEmpty {
-            presenter?.onTextFieldShouldReturn(text: text)
+            presenter.onTextFieldShouldReturn(text: text)
         }
         
         return true
