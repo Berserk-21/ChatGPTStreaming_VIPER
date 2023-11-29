@@ -8,12 +8,12 @@
 import Foundation
 
 protocol AnyRouter {
-    static func start() -> RootViewController
+    func start() -> RootViewController
 }
 
 class Router: AnyRouter {
     
-    static func start() -> RootViewController {
+    func start() -> RootViewController {
         
         let interactor = Interactor()
         let router = Router()
