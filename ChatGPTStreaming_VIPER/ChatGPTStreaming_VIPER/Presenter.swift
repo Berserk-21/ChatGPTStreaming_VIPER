@@ -11,7 +11,7 @@ protocol AnyPresenter {
     func onTextFieldShouldReturn(text: String)
 }
 
-class Presenter: AnyPresenter {
+final class Presenter: AnyPresenter {
 
     private let router: AnyRouter
     private let interactor: AnyInteractor

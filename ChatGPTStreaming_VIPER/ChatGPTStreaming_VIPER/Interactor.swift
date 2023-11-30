@@ -11,7 +11,7 @@ protocol AnyInteractor: AnyObject {
     func transform(string: String, completion: @escaping (String) -> Void)
 }
 
-class Interactor: AnyInteractor {
+final class Interactor: AnyInteractor {
     
     func transform(string: String, completion: @escaping (String) -> Void) {
         

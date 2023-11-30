@@ -12,7 +12,7 @@ protocol AnyRouter {
     func getRootView() -> UIViewController
 }
 
-class Router: AnyRouter {
+final class Router: AnyRouter {
     
     func getRootView() -> UIViewController {
         

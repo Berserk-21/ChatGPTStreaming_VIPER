@@ -11,7 +11,7 @@ protocol AnyView: AnyObject {
     func didTransform(string: String)
 }
 
-class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
+final class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
     
     // MARK: - Properties
     
