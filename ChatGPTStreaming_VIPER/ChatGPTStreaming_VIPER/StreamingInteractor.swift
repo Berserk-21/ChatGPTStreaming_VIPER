@@ -46,7 +46,6 @@ class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSessionDat
         do {
             urlRequest.httpBody = try JSONSerialization.data(withJSONObject: requestData)
         } catch {
-            print("There was an error serializing requestData")
             completionHandler(.failure(APIError.requestDataSerialization))
         }
         
@@ -66,24 +65,18 @@ class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSessionDat
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         
         if let receivedString = String(data: data, encoding: .utf8) {
-            
             let components = receivedString.components(separatedBy: "data: ")
             
             let cleanedComponents = components.map { component in
-                
                 var cleanedComponent = component
-                
+            
                 if let endIndex = cleanedComponent.lastIndex(of: "}") {
-                    
                     let rangeToDelete = cleanedComponent.index(after: endIndex)..<cleanedComponent.endIndex
-                    
                     cleanedComponent.removeSubrange(rangeToDelete)
                 }
                 
                 if let indexOfOpenBrace = cleanedComponent.firstIndex(of: "{") {
-                    
                     let rangeToDelete = cleanedComponent.startIndex..<indexOfOpenBrace
-                    
                     cleanedComponent.removeSubrange(rangeToDelete)
                 }
                 
@@ -99,14 +92,12 @@ class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSessionDat
                         
                         if let answer = response.choices?[0].delta?.content {
                             // Envoyer la réponse au presenter
-                            
                             completionHandler?(.success(answer))
                         }
                     } catch let error {
                         
                         if component.contains("[DONE]") {
-                            print("Streaming is over")
-                            print("\n\nfin du stream.")
+                            print("Streaming is done.")
                         } else {
                             print("There was an error with this answer: \(component)")
                             print(String(describing: error))
@@ -120,7 +111,7 @@ class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSessionDat
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         
         if let err = error {
-            print("There was an error with the urlTask"err.localizedDescription)
+            completionHandler?(.failure(APIError.didCompleteWithError))
         }
         
         completionHandler = nil
@@ -135,7 +126,6 @@ class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSessionDat
         do {
             let data = try Data(contentsOf: configUrl)
             let configPlist = try PropertyListDecoder().decode(ConfigPlistModel.self, from: data)
-            print(configPlist.OPENAI_API_KEY)
             return configPlist
         } catch let err {
             print("There was an error getting the Config.plist: \(err.localizedDescription)")

@@ -12,4 +12,5 @@ enum APIError: Error {
     case requestDataSerialization
     case response
     case APIKeyMissing
+    case didCompleteWithError
 }
