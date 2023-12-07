@@ -52,6 +52,7 @@ final class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         
         setupLayout()
+        setupRightBarButton()
         
         questionTextField.delegate = self
     }
@@ -76,6 +77,18 @@ final class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
         ]
         
         NSLayoutConstraint.activate(constraints)
+    }
+    
+    private func setupRightBarButton() {
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "settings"), style: .plain, target: self, action: #selector(didTapRightBarButton))
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func didTapRightBarButton() {
+        
+        presenter.didTapRightBarButton()
     }
     
     // MARK: - UITextField Delegate
