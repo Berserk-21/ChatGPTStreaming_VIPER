@@ -18,7 +18,7 @@ final class Presenter: AnyPresenter {
     
     weak var view: AnyView?
     
-    init(router: AnyRouter, interactor: AnyInteractor, streamingInteractor: StreamingInteractorInterface) {
+    init(router: AnyRouter, streamingInteractor: StreamingInteractorInterface) {
         self.router = router
         self.streamingInteractor = streamingInteractor
     }
