@@ -14,20 +14,25 @@ protocol AnyPresenter {
 final class Presenter: AnyPresenter {
 
     private let router: AnyRouter
-    private let interactor: AnyInteractor
+    private let streamingInteractor: StreamingInteractorInterface
     
     weak var view: AnyView?
     
-    init(router: AnyRouter, interactor: AnyInteractor) {
+    init(router: AnyRouter, interactor: AnyInteractor, streamingInteractor: StreamingInteractorInterface) {
         self.router = router
-        self.interactor = interactor
+        self.streamingInteractor = streamingInteractor
     }
     
     func onTextFieldShouldReturn(text: String) {
         
-        interactor.transform(string: text, completion: { [weak self] transformedText in
-            self?.view?.didTransform(string: transformedText)
-        })
+        streamingInteractor.startStreaming(for: text) { [weak self] result in
+            switch result {
+            case .success(let string):
+                self?.view?.didTransform(string: string)
+            case .failure(_):
+                break
+            }
+        }
     }
     
 }

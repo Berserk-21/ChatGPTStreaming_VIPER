@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C6B18B72B221D6000513A8B /* ChatGPTInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B18B62B221D6000513A8B /* ChatGPTInteractor.swift */; };
+		2C6B18B72B221D6000513A8B /* StreamingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B18B62B221D6000513A8B /* StreamingInteractor.swift */; };
 		2C6B18B92B2222A400513A8B /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B18B82B2222A400513A8B /* APIError.swift */; };
 		2C6B18BB2B2223F400513A8B /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C6B18BA2B2223F400513A8B /* Config.plist */; };
 		2C6B18C22B222AB000513A8B /* ConfigPlistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B18C12B222AB000513A8B /* ConfigPlistModel.swift */; };
@@ -24,7 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2C6B18B62B221D6000513A8B /* ChatGPTInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTInteractor.swift; sourceTree = "<group>"; };
+		2C6B18B62B221D6000513A8B /* StreamingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingInteractor.swift; sourceTree = "<group>"; };
 		2C6B18B82B2222A400513A8B /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		2C6B18BA2B2223F400513A8B /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		2C6B18C12B222AB000513A8B /* ConfigPlistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigPlistModel.swift; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 				2CF27BA22B162C6700F63D09 /* RootViewController.swift */,
 				2CF27BBA2B163A3F00F63D09 /* Router.swift */,
 				2CF27BBE2B16434F00F63D09 /* Interactor.swift */,
-				2C6B18B62B221D6000513A8B /* ChatGPTInteractor.swift */,
+				2C6B18B62B221D6000513A8B /* StreamingInteractor.swift */,
 				2CF27BBC2B163B1400F63D09 /* Presenter.swift */,
 				2C6B18B82B2222A400513A8B /* APIError.swift */,
 				2C6B18C12B222AB000513A8B /* ConfigPlistModel.swift */,
@@ -179,7 +179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C6B18B72B221D6000513A8B /* ChatGPTInteractor.swift in Sources */,
+				2C6B18B72B221D6000513A8B /* StreamingInteractor.swift in Sources */,
 				2CF27BBF2B16434F00F63D09 /* Interactor.swift in Sources */,
 				2CF27BBB2B163A3F00F63D09 /* Router.swift in Sources */,
 				2C6B18C52B2230FA00513A8B /* OpenAIModel.swift in Sources */,
