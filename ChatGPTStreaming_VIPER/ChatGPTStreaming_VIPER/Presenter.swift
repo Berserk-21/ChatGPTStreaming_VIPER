@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 protocol AnyPresenter {
     func onTextFieldShouldReturn(text: String)
@@ -33,8 +32,8 @@ final class Presenter: AnyPresenter {
     }
     
     func didTapRightBarButton() {
-        if let viewController = view as? UIViewController {
-            router.pushToNextModule(from: viewController)
+        if let anyView = view {
+            router.pushToNextModule(from: anyView)
         }
     }
 }
