@@ -18,12 +18,12 @@ class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSessionDat
     func startStreaming(for input: String, completionHandler: @escaping (Result<String, Error>) -> Void) {
         
         guard let url = URL(string: "https://api.openai.com/v1/chat/completions") else {
-            completionHandler(.failure(APIError.url))
+            completionHandler(.failure(StreamingError.url))
             return
         }
         
         guard let configPlist = getConfigPlist() else {
-            completionHandler(.failure(APIError.APIKeyMissing))
+            completionHandler(.failure(StreamingError.APIKeyMissing))
             return
         }
         
@@ -46,7 +46,7 @@ class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSessionDat
         do {
             urlRequest.httpBody = try JSONSerialization.data(withJSONObject: requestData)
         } catch {
-            completionHandler(.failure(APIError.requestDataSerialization))
+            completionHandler(.failure(StreamingError.requestDataSerialization))
         }
         
         self.completionHandler = completionHandler
@@ -111,7 +111,7 @@ class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSessionDat
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         
         if let err = error {
-            completionHandler?(.failure(APIError.didCompleteWithError))
+            completionHandler?(.failure(StreamingError.didCompleteWithError))
         }
         
         completionHandler = nil
