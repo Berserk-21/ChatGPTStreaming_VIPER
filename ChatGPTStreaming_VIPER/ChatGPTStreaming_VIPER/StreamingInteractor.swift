@@ -41,7 +41,7 @@ class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSessionDat
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.setValue("Bearer \(configPlist.OPENAI_API_KEY)", forHTTPHeaderField: "Authorization")
+        urlRequest.setValue("Bearer \(configPlist.apiKey)", forHTTPHeaderField: "Authorization")
         
         do {
             urlRequest.httpBody = try JSONSerialization.data(withJSONObject: requestData)

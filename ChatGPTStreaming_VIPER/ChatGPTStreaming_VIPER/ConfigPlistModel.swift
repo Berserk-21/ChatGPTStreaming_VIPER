@@ -8,5 +8,10 @@
 import Foundation
 
 struct ConfigPlistModel: Decodable {
-    let OPENAI_API_KEY: String
+    
+    let apiKey: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case apiKey = "OPENAI_API_KEY"
+    }
 }
