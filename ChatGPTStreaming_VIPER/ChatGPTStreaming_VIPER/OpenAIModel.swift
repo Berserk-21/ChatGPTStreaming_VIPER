@@ -8,11 +8,11 @@
 import Foundation
 
 struct OpenAIStreamingJSON: Decodable {
-    var id: String?
-    var object: String
-    var created: Int
-    var model: String
-    var choices: [StreamingChoice]?
+    let id: String?
+    let object: String
+    let created: Int
+    let model: String
+    let choices: [StreamingChoice]?
 }
 
 struct StreamingChoice: Decodable {
