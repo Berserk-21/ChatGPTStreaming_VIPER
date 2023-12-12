@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AnyView: AnyObject {
-    func didTransform(string: String)
+    func updateStreamedAnswer(string: String)
 }
 
 final class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
@@ -92,7 +92,7 @@ final class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
     
     // MARK: - AnyView
     
-    func didTransform(string: String) {
+    func updateStreamedAnswer(string: String) {
         if !Thread.isMainThread {
             DispatchQueue.main.async {
                 self.answerTextView.text += string

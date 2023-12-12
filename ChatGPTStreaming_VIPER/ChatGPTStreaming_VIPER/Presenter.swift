@@ -28,7 +28,7 @@ final class Presenter: AnyPresenter {
         streamingInteractor.startStreaming(for: text) { [weak self] result in
             switch result {
             case .success(let string):
-                self?.view?.didTransform(string: string)
+                self?.view?.updateStreamedAnswer(string: string)
             case .failure(_):
                 break
             }
