@@ -8,7 +8,7 @@
 import Foundation
 
 struct OpenAIStreamingJSON: Decodable {
-    let id: String?
+    let id: String
     let object: String
     let created: Int
     let model: String
@@ -16,9 +16,9 @@ struct OpenAIStreamingJSON: Decodable {
 }
 
 struct StreamingChoice: Decodable {
-    let delta: StreamingDelta?
+    let delta: StreamingDelta
     let finish_reason: String?
-    let index: Int?
+    let index: Int
 }
 
 struct StreamingDelta: Decodable {

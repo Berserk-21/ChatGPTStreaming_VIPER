@@ -90,7 +90,9 @@ final class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSess
                     do {
                         let response = try JSONDecoder().decode(OpenAIStreamingJSON.self, from: componentData)
                         
-                        if let answer = response.choices?[0].delta?.content {
+                        if let finishReason = response.choices?[0].finish_reason, finishReason == "stop" {
+                            print("Streaming will stop")
+                        } else if let answer = response.choices?[0].delta.content {
                             // Envoyer la réponse au presenter
                             completionHandler?(.success(answer))
                         }
@@ -110,7 +112,7 @@ final class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSess
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         
-        if let err = error {
+        if error != nil {
             completionHandler?(.failure(StreamingError.didCompleteWithError))
         }
         
