@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C6B18C92B2242C700513A8B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B18C82B2242C700513A8B /* SettingsViewController.swift */; };
 		2CF27B9F2B162C6700F63D09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF27B9E2B162C6700F63D09 /* AppDelegate.swift */; };
 		2CF27BA12B162C6700F63D09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF27BA02B162C6700F63D09 /* SceneDelegate.swift */; };
 		2CF27BA32B162C6700F63D09 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF27BA22B162C6700F63D09 /* RootViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C6B18C82B2242C700513A8B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2CF27B9B2B162C6700F63D09 /* ChatGPTStreaming_VIPER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatGPTStreaming_VIPER.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF27B9E2B162C6700F63D09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CF27BA02B162C6700F63D09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				2CF27BBA2B163A3F00F63D09 /* Router.swift */,
 				2CF27BBE2B16434F00F63D09 /* Interactor.swift */,
 				2CF27BBC2B163B1400F63D09 /* Presenter.swift */,
+				2C6B18C82B2242C700513A8B /* SettingsViewController.swift */,
 				2CF27BA42B162C6700F63D09 /* Main.storyboard */,
 				2CF27BA72B162C6800F63D09 /* Assets.xcassets */,
 				2CF27BA92B162C6800F63D09 /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 			files = (
 				2CF27BBF2B16434F00F63D09 /* Interactor.swift in Sources */,
 				2CF27BBB2B163A3F00F63D09 /* Router.swift in Sources */,
+				2C6B18C92B2242C700513A8B /* SettingsViewController.swift in Sources */,
 				2CF27BA32B162C6700F63D09 /* RootViewController.swift in Sources */,
 				2CF27B9F2B162C6700F63D09 /* AppDelegate.swift in Sources */,
 				2CF27BA12B162C6700F63D09 /* SceneDelegate.swift in Sources */,

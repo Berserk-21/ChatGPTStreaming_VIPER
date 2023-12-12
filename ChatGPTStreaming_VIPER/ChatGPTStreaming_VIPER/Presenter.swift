@@ -9,6 +9,7 @@ import Foundation
 
 protocol AnyPresenter {
     func onTextFieldShouldReturn(text: String)
+    func didTapRightBarButton()
 }
 
 final class Presenter: AnyPresenter {
@@ -30,4 +31,9 @@ final class Presenter: AnyPresenter {
         })
     }
     
+    func didTapRightBarButton() {
+        if let navController = view?.viewController.navigationController {
+            router.pushToNextModule(on: navController)
+        }
+    }
 }
