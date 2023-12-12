@@ -12,9 +12,13 @@
 		2C6B18BB2B2223F400513A8B /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C6B18BA2B2223F400513A8B /* Config.plist */; };
 		2C6B18C22B222AB000513A8B /* ConfigPlistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B18C12B222AB000513A8B /* ConfigPlistModel.swift */; };
 		2C6B18C52B2230FA00513A8B /* OpenAIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B18C42B2230FA00513A8B /* OpenAIModel.swift */; };
+		2C6B18C92B2242C700513A8B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B18C82B2242C700513A8B /* SettingsViewController.swift */; };
 		2C8408F22B286C4800566906 /* ParsingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8408F12B286C4800566906 /* ParsingInteractor.swift */; };
 		2C8408F42B28799200566906 /* GPTRequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8408F32B28799200566906 /* GPTRequestData.swift */; };
-		2C6B18C92B2242C700513A8B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B18C82B2242C700513A8B /* SettingsViewController.swift */; };
+		2C8408FA2B28C04F00566906 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8408F92B28C04F00566906 /* SettingsTableViewCell.swift */; };
+		2C8408FC2B28C1E800566906 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8408FB2B28C1E800566906 /* SettingsModel.swift */; };
+		2C8408FE2B28C2D600566906 /* SettingsTableViewCellInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8408FD2B28C2D500566906 /* SettingsTableViewCellInteractor.swift */; };
+		2C8409002B28C6CE00566906 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8408FF2B28C6CE00566906 /* SettingsPresenter.swift */; };
 		2CF27B9F2B162C6700F63D09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF27B9E2B162C6700F63D09 /* AppDelegate.swift */; };
 		2CF27BA12B162C6700F63D09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF27BA02B162C6700F63D09 /* SceneDelegate.swift */; };
 		2CF27BA32B162C6700F63D09 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF27BA22B162C6700F63D09 /* RootViewController.swift */; };
@@ -31,9 +35,13 @@
 		2C6B18BA2B2223F400513A8B /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		2C6B18C12B222AB000513A8B /* ConfigPlistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigPlistModel.swift; sourceTree = "<group>"; };
 		2C6B18C42B2230FA00513A8B /* OpenAIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIModel.swift; sourceTree = "<group>"; };
+		2C6B18C82B2242C700513A8B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2C8408F12B286C4800566906 /* ParsingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingInteractor.swift; sourceTree = "<group>"; };
 		2C8408F32B28799200566906 /* GPTRequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTRequestData.swift; sourceTree = "<group>"; };
-		2C6B18C82B2242C700513A8B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2C8408F92B28C04F00566906 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		2C8408FB2B28C1E800566906 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		2C8408FD2B28C2D500566906 /* SettingsTableViewCellInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCellInteractor.swift; sourceTree = "<group>"; };
+		2C8408FF2B28C6CE00566906 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		2CF27B9B2B162C6700F63D09 /* ChatGPTStreaming_VIPER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatGPTStreaming_VIPER.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF27B9E2B162C6700F63D09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CF27BA02B162C6700F63D09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,10 +77,37 @@
 		2C6B18BD2B22241500513A8B /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				2CF27BA42B162C6700F63D09 /* Main.storyboard */,
 				2CF27BA92B162C6800F63D09 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		2C8408F72B28BFD900566906 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2C6B18C82B2242C700513A8B /* SettingsViewController.swift */,
+				2C8408F92B28C04F00566906 /* SettingsTableViewCell.swift */,
+				2C8408FB2B28C1E800566906 /* SettingsModel.swift */,
+				2C8408FD2B28C2D500566906 /* SettingsTableViewCellInteractor.swift */,
+				2C8408FF2B28C6CE00566906 /* SettingsPresenter.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		2C8408F82B28BFE800566906 /* Streaming */ = {
+			isa = PBXGroup;
+			children = (
+				2CF27BA22B162C6700F63D09 /* RootViewController.swift */,
+				2CF27BBA2B163A3F00F63D09 /* Router.swift */,
+				2C6B18B62B221D6000513A8B /* StreamingInteractor.swift */,
+				2C8408F12B286C4800566906 /* ParsingInteractor.swift */,
+				2CF27BBC2B163B1400F63D09 /* Presenter.swift */,
+				2C6B18B82B2222A400513A8B /* StreamingError.swift */,
+				2C6B18C12B222AB000513A8B /* ConfigPlistModel.swift */,
+				2C6B18C42B2230FA00513A8B /* OpenAIModel.swift */,
+				2C8408F32B28799200566906 /* GPTRequestData.swift */,
+			);
+			name = Streaming;
 			sourceTree = "<group>";
 		};
 		2CF27B922B162C6700F63D09 = {
@@ -96,18 +131,10 @@
 			children = (
 				2CF27B9E2B162C6700F63D09 /* AppDelegate.swift */,
 				2CF27BA02B162C6700F63D09 /* SceneDelegate.swift */,
-				2CF27BA22B162C6700F63D09 /* RootViewController.swift */,
-				2CF27BBA2B163A3F00F63D09 /* Router.swift */,
-				2C6B18B62B221D6000513A8B /* StreamingInteractor.swift */,
-				2C8408F12B286C4800566906 /* ParsingInteractor.swift */,
-				2CF27BBC2B163B1400F63D09 /* Presenter.swift */,
-				2C6B18B82B2222A400513A8B /* StreamingError.swift */,
-				2C6B18C12B222AB000513A8B /* ConfigPlistModel.swift */,
-				2C6B18C42B2230FA00513A8B /* OpenAIModel.swift */,
-				2C8408F32B28799200566906 /* GPTRequestData.swift */,
+				2C8408F82B28BFE800566906 /* Streaming */,
+				2C8408F72B28BFD900566906 /* Settings */,
 				2C6B18BD2B22241500513A8B /* Storyboards */,
 				2C6B18BC2B2223FB00513A8B /* Plists */,
-				2C6B18C82B2242C700513A8B /* SettingsViewController.swift */,
 				2CF27BA42B162C6700F63D09 /* Main.storyboard */,
 				2CF27BA72B162C6800F63D09 /* Assets.xcassets */,
 			);
@@ -191,13 +218,17 @@
 				2CF27BBB2B163A3F00F63D09 /* Router.swift in Sources */,
 				2C6B18C52B2230FA00513A8B /* OpenAIModel.swift in Sources */,
 				2C6B18C92B2242C700513A8B /* SettingsViewController.swift in Sources */,
+				2C8408FA2B28C04F00566906 /* SettingsTableViewCell.swift in Sources */,
 				2CF27BA32B162C6700F63D09 /* RootViewController.swift in Sources */,
 				2C6B18C22B222AB000513A8B /* ConfigPlistModel.swift in Sources */,
 				2CF27B9F2B162C6700F63D09 /* AppDelegate.swift in Sources */,
 				2C6B18B92B2222A400513A8B /* StreamingError.swift in Sources */,
 				2C8408F22B286C4800566906 /* ParsingInteractor.swift in Sources */,
+				2C8409002B28C6CE00566906 /* SettingsPresenter.swift in Sources */,
 				2CF27BA12B162C6700F63D09 /* SceneDelegate.swift in Sources */,
+				2C8408FC2B28C1E800566906 /* SettingsModel.swift in Sources */,
 				2CF27BBD2B163B1400F63D09 /* Presenter.swift in Sources */,
+				2C8408FE2B28C2D600566906 /* SettingsTableViewCellInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
