@@ -14,6 +14,7 @@ protocol FluidWritingInteractorInterface {
 
 final class FluidWritingInteractor: FluidWritingInteractorInterface {
     
+    /// Stores all the tokens answered by ChatGPT
     var tokensList: [String] = []
     
     private var timer: Timer?
@@ -22,6 +23,7 @@ final class FluidWritingInteractor: FluidWritingInteractorInterface {
     
     private var completionHandler: ((String) -> Void)?
     
+    /// Get a token from tokensList at the currentTokenIndex then use a timer to retrieve each letter at a human readable pace. Increase currentTokenIndex and repeat until all tokens from tokensList have been retrieved.
     func processFluidWriting() {
         
         guard timer == nil else { return }
