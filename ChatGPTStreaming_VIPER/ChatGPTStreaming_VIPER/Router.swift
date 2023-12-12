@@ -17,10 +17,10 @@ final class Router: AnyRouter {
     
     func getRootView() -> UIViewController {
         
-        let interactor = Interactor()
+        let streamingInteractor = StreamingInteractor()
         let router = Router()
         
-        let presenter = Presenter(router: router, interactor: interactor)
+        let presenter = Presenter(router: router, streamingInteractor: streamingInteractor)
         
         let view = RootViewController(presenter: presenter)
         presenter.view = view

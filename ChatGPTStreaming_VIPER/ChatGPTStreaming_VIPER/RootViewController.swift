@@ -9,7 +9,7 @@ import UIKit
 
 protocol AnyView: AnyObject {
     var viewController: UIViewController { get }
-    func didTransform(string: String)
+    func updateStreamedAnswer(string: String)
 }
 
 final class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
@@ -99,6 +99,7 @@ final class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         if let text = textField.text, !text.isEmpty {
+            self.answerTextView.text = ""
             presenter.onTextFieldShouldReturn(text: text)
         }
         
@@ -107,13 +108,13 @@ final class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
     
     // MARK: - AnyView
     
-    func didTransform(string: String) {
+    func updateStreamedAnswer(string: String) {
         if !Thread.isMainThread {
             DispatchQueue.main.async {
-                self.answerTextView.text = string
+                self.answerTextView.text += string
             }
         } else {
-            self.answerTextView.text = string
+            self.answerTextView.text += string
         }
     }
     
