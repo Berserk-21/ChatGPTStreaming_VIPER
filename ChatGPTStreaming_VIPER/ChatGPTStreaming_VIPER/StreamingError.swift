@@ -13,4 +13,7 @@ enum StreamingError: Error {
     case response
     case APIKeyMissing
     case didCompleteWithError
+    case streamingWillEnd
+    case streamingIsOver
+    case decodingError
 }

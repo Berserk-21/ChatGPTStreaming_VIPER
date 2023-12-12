@@ -15,6 +15,12 @@ final class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSess
     
     private var completionHandler: ((Result<String, Error>) -> Void)?
     private var urlSession: URLSession?
+    private let parsingInteractor: ParsingInteractorInterface
+    
+    override init() {
+        self.parsingInteractor = ParsingInteractor()
+        super.init()
+    }
     
     func startStreaming(for input: String, completionHandler: @escaping (Result<String, Error>) -> Void) {
         
@@ -67,48 +73,12 @@ final class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSess
     
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         
-        if let receivedString = String(data: data, encoding: .utf8) {
-            let components = receivedString.components(separatedBy: "data: ")
-            
-            let cleanedComponents = components.map { component in
-                var cleanedComponent = component
-            
-                if let endIndex = cleanedComponent.lastIndex(of: "}") {
-                    let rangeToDelete = cleanedComponent.index(after: endIndex)..<cleanedComponent.endIndex
-                    cleanedComponent.removeSubrange(rangeToDelete)
-                }
-                
-                if let indexOfOpenBrace = cleanedComponent.firstIndex(of: "{") {
-                    let rangeToDelete = cleanedComponent.startIndex..<indexOfOpenBrace
-                    cleanedComponent.removeSubrange(rangeToDelete)
-                }
-                
-                return cleanedComponent
-            }
-            
-            cleanedComponents.forEach { component in
-                
-                if !component.isEmpty, let componentData = component.data(using: .utf8) {
-                    
-                    do {
-                        let response = try JSONDecoder().decode(OpenAIStreamingJSON.self, from: componentData)
-                        
-                        if let finishReason = response.choices?[0].finish_reason, finishReason == "stop" {
-                            print("Streaming will stop")
-                        } else if let answer = response.choices?[0].delta.content {
-                            // Envoyer la réponse au presenter
-                            completionHandler?(.success(answer))
-                        }
-                    } catch let error {
-                        
-                        if component.contains("[DONE]") {
-                            print("Streaming is done.")
-                        } else {
-                            print("There was an error with this answer: \(component)")
-                            print(String(describing: error))
-                        }
-                    }
-                }
+        parsingInteractor.parseStreaming(data: data) { result in
+            switch result {
+            case .success(let string):
+                completionHandler?(.success(string))
+            case .failure(let error):
+                completionHandler?(.failure(error))
             }
         }
     }
