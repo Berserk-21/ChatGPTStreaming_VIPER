@@ -34,6 +34,7 @@ final class Presenter: AnyPresenter {
                 break
             }
         }
+    }
     
     
     func didTapRightBarButton() {
