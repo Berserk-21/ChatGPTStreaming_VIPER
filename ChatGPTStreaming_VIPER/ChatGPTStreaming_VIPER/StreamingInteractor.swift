@@ -39,9 +39,9 @@ final class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSess
         }
                 
         let requestData: [String: Any] = [
-            "model": "gpt-3.5-turbo",
+            "model": GPTModel.gpt4.rawValue,
             "messages": [
-                ["role": "system", "content": "You are a helpful assistant and you answer in french."],
+                ["role": "system", "content": GPTRole.teacher.rawValue],
                 ["role": "user", "content": input]
             ],
             "stream": true
