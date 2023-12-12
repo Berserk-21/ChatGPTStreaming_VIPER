@@ -14,6 +14,7 @@ protocol StreamingInteractorInterface: AnyObject {
 final class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSessionDataDelegate {
     
     private var completionHandler: ((Result<String, Error>) -> Void)?
+    private var urlSession: URLSession?
     
     func startStreaming(for input: String, completionHandler: @escaping (Result<String, Error>) -> Void) {
         
@@ -27,8 +28,10 @@ final class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSess
             return
         }
         
-        let session = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
-        
+        if urlSession == nil {
+            urlSession = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
+        }
+                
         let requestData: [String: Any] = [
             "model": "gpt-3.5-turbo",
             "messages": [
@@ -51,9 +54,9 @@ final class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSess
         
         self.completionHandler = completionHandler
         
-        let task = session.dataTask(with: urlRequest)
+        let task = urlSession?.dataTask(with: urlRequest)
         
-        task.resume()
+        task?.resume()
     }
     
     // MARK: - URLSessionDataDelegate
