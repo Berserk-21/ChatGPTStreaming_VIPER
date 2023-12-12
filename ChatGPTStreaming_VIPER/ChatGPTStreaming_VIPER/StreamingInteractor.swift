@@ -11,7 +11,7 @@ protocol StreamingInteractorInterface: AnyObject {
     func startStreaming(for input: String, completionHandler: @escaping (Result<String, Error>) -> Void)
 }
 
-class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSessionDataDelegate {
+final class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSessionDataDelegate {
     
     private var completionHandler: ((Result<String, Error>) -> Void)?
     
