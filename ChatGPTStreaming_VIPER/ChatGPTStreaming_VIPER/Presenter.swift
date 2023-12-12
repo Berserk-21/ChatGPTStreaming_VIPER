@@ -32,8 +32,8 @@ final class Presenter: AnyPresenter {
     }
     
     func didTapRightBarButton() {
-        if let anyView = view {
-            router.pushToNextModule(from: anyView)
+        if let viewController = view?.viewController {
+            router.pushToNextModule(from: viewController)
         }
     }
 }

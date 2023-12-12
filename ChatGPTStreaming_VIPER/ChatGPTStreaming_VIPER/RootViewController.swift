@@ -8,10 +8,13 @@
 import UIKit
 
 protocol AnyView: AnyObject {
+    var viewController: UIViewController { get }
     func didTransform(string: String)
 }
 
 final class RootViewController: UIViewController, AnyView, UITextFieldDelegate {
+    
+    var viewController: UIViewController { return self }
     
     // MARK: - Properties
     
