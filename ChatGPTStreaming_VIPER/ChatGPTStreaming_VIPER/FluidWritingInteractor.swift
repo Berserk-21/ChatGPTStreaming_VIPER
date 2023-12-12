@@ -24,13 +24,13 @@ final class FluidWritingInteractor: FluidWritingInteractorInterface {
     
     func processFluidWriting() {
         
+        guard timer == nil else { return }
+        
         guard currentTokenIndex < tokensList.count else {
             return
         }
         
         let chunk = tokensList[currentTokenIndex]
-        
-        guard timer == nil else { return }
         
         var currentCharacterIndex = 0
         
@@ -41,16 +41,20 @@ final class FluidWritingInteractor: FluidWritingInteractorInterface {
             if currentCharacterIndex < chunk.count {
                 let nextCharacterIndex = chunk.index(chunk.startIndex, offsetBy: currentCharacterIndex)
                 let nextCharacter = String(chunk[nextCharacterIndex])
-                self?.completionHandler?(nextCharacter)
+                unwrappedSelf.completionHandler?(nextCharacter)
                 currentCharacterIndex += 1
             } else {
-                unwrappedSelf.timer?.invalidate()
-                unwrappedSelf.timer = nil
+                unwrappedSelf.resetTimer()
 
                 unwrappedSelf.currentTokenIndex += 1
-                self?.processFluidWriting()
+                unwrappedSelf.processFluidWriting()
             }
         })
+    }
+    
+    private func resetTimer() {
+        timer?.invalidate()
+        timer = nil
     }
     
     func addToQueue(string: String, completion: @escaping (String) -> Void) {
