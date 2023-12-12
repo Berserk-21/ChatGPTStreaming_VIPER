@@ -10,6 +10,7 @@ import UIKit
 
 protocol AnyRouter {
     func getRootView() -> UIViewController
+    func pushToNextModule(on navigationController: UINavigationController)
 }
 
 final class Router: AnyRouter {
@@ -28,4 +29,9 @@ final class Router: AnyRouter {
         return navigationController
     }
     
+    func pushToNextModule(on navigationController: UINavigationController) {
+        
+        let settingsVC = SettingsViewController()
+        navigationController.pushViewController(settingsVC, animated: true)
+    }
 }
