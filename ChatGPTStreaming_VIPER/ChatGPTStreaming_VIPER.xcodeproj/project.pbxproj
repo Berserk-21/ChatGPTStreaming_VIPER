@@ -14,6 +14,7 @@
 		2C6B18C52B2230FA00513A8B /* OpenAIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B18C42B2230FA00513A8B /* OpenAIModel.swift */; };
 		2C8408F22B286C4800566906 /* ParsingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8408F12B286C4800566906 /* ParsingInteractor.swift */; };
 		2C8408F42B28799200566906 /* GPTRequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8408F32B28799200566906 /* GPTRequestData.swift */; };
+		2C8408F62B28803A00566906 /* FluidWritingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8408F52B28803A00566906 /* FluidWritingInteractor.swift */; };
 		2CF27B9F2B162C6700F63D09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF27B9E2B162C6700F63D09 /* AppDelegate.swift */; };
 		2CF27BA12B162C6700F63D09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF27BA02B162C6700F63D09 /* SceneDelegate.swift */; };
 		2CF27BA32B162C6700F63D09 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF27BA22B162C6700F63D09 /* RootViewController.swift */; };
@@ -32,6 +33,7 @@
 		2C6B18C42B2230FA00513A8B /* OpenAIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIModel.swift; sourceTree = "<group>"; };
 		2C8408F12B286C4800566906 /* ParsingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingInteractor.swift; sourceTree = "<group>"; };
 		2C8408F32B28799200566906 /* GPTRequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTRequestData.swift; sourceTree = "<group>"; };
+		2C8408F52B28803A00566906 /* FluidWritingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidWritingInteractor.swift; sourceTree = "<group>"; };
 		2CF27B9B2B162C6700F63D09 /* ChatGPTStreaming_VIPER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatGPTStreaming_VIPER.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF27B9E2B162C6700F63D09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CF27BA02B162C6700F63D09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				2CF27BA22B162C6700F63D09 /* RootViewController.swift */,
 				2CF27BBA2B163A3F00F63D09 /* Router.swift */,
 				2C6B18B62B221D6000513A8B /* StreamingInteractor.swift */,
+				2C8408F52B28803A00566906 /* FluidWritingInteractor.swift */,
 				2C8408F12B286C4800566906 /* ParsingInteractor.swift */,
 				2CF27BBC2B163B1400F63D09 /* Presenter.swift */,
 				2C6B18B82B2222A400513A8B /* StreamingError.swift */,
@@ -192,6 +195,7 @@
 				2C6B18B92B2222A400513A8B /* StreamingError.swift in Sources */,
 				2C8408F22B286C4800566906 /* ParsingInteractor.swift in Sources */,
 				2CF27BA12B162C6700F63D09 /* SceneDelegate.swift in Sources */,
+				2C8408F62B28803A00566906 /* FluidWritingInteractor.swift in Sources */,
 				2CF27BBD2B163B1400F63D09 /* Presenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
