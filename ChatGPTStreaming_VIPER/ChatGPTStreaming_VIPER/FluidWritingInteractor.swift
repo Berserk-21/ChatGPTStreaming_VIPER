@@ -8,36 +8,31 @@
 import Foundation
 
 protocol FluidWritingInteractorInterface {
-    var allChunks: [String] { get set }
+    var tokensList: [String] { get set }
     func addToQueue(string: String, completion: @escaping (String) -> Void)
 }
 
 final class FluidWritingInteractor: FluidWritingInteractorInterface {
     
-    var allChunks: [String] = []
+    var tokensList: [String] = []
     
     private var timer: Timer?
     private let typingInterval: TimeInterval = 0.05
-    private var currentChunkIndex: Int = 0
-    private var isProcessingFluidWriting: Bool = false
+    private var currentTokenIndex: Int = 0
     
     private var completionHandler: ((String) -> Void)?
     
     func processFluidWriting() {
         
-        guard !isProcessingFluidWriting else { return }
-        
-        guard currentChunkIndex < allChunks.count else {
+        guard currentTokenIndex < tokensList.count else {
             return
         }
         
-        let chunk = allChunks[currentChunkIndex]
+        let chunk = tokensList[currentTokenIndex]
         
         guard timer == nil else { return }
         
         var currentCharacterIndex = 0
-        
-        isProcessingFluidWriting = true
         
         timer = Timer.scheduledTimer(withTimeInterval: typingInterval, repeats: true, block: { [weak self] _ in
             
@@ -52,8 +47,7 @@ final class FluidWritingInteractor: FluidWritingInteractorInterface {
                 unwrappedSelf.timer?.invalidate()
                 unwrappedSelf.timer = nil
 
-                unwrappedSelf.isProcessingFluidWriting = false
-                unwrappedSelf.currentChunkIndex += 1
+                unwrappedSelf.currentTokenIndex += 1
                 self?.processFluidWriting()
             }
         })
@@ -63,13 +57,17 @@ final class FluidWritingInteractor: FluidWritingInteractorInterface {
                 
         guard !string.isEmpty else { return }
 
+        tokensList.append(string)
+
         if self.completionHandler == nil {
             self.completionHandler = completion
         }
-                
-        allChunks.append(string)
         
-        DispatchQueue.main.async {
+        if !Thread.isMainThread {
+            DispatchQueue.main.async {
+                self.processFluidWriting()
+            }
+        } else {
             self.processFluidWriting()
         }
     }
