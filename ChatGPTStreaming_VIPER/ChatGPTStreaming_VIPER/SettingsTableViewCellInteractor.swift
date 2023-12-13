@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-protocol SettingsTableViewCellInteractorInterface {
+protocol SettingsTableViewDataSourceInteractor {
     func cellFor(tableView: UITableView, indexPath: IndexPath) -> SettingsTableViewCell?
     func numberOfRows() -> Int
 }
 
-class SettingsTableViewCellInteractor: SettingsTableViewCellInteractorInterface {
+class SettingsTableViewCellInteractor: SettingsTableViewDataSourceInteractor {
     
     func numberOfRows() -> Int {
         return getSettingsModel().count
