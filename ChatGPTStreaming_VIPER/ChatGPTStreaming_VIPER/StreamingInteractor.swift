@@ -17,8 +17,8 @@ final class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSess
     private var urlSession: URLSession?
     private let parsingInteractor: ParsingInteractorInterface
     
-    override init() {
-        self.parsingInteractor = ParsingInteractor()
+    init(parsingInteractor: ParsingInteractorInterface = ParsingInteractor()) {
+        self.parsingInteractor = parsingInteractor
         super.init()
     }
     
