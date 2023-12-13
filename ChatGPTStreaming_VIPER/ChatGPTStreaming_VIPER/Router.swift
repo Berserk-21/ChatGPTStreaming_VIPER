@@ -18,9 +18,10 @@ final class Router: AnyRouter {
     func getRootView() -> UIViewController {
         
         let streamingInteractor = StreamingInteractor()
+        let fluidWritingInteractor = FluidWritingInteractor()
         let router = Router()
         
-        let presenter = Presenter(router: router, streamingInteractor: streamingInteractor)
+        let presenter = Presenter(router: router, streamingInteractor: streamingInteractor, fluidWritingInteractor: fluidWritingInteractor)
         
         let view = RootViewController(presenter: presenter)
         presenter.view = view
