@@ -9,15 +9,23 @@ import Foundation
 import UIKit
 
 protocol SettingsPresenterInterface {
-    var settingsTableViewCellInteractor: SettingsTableViewDataSourceInteractor { get }
+    var settingsTableViewDataSourceInteractor: SettingsTableViewDataSourceInteractor { get }
+    func didSelectRowAt(indexPath: IndexPath)
 }
 
 class SettingsPresenter: SettingsPresenterInterface {
+
+    let settingsTableViewDataSourceInteractor: SettingsTableViewDataSourceInteractor
     
-    let settingsTableViewCellInteractor: SettingsTableViewDataSourceInteractor
+    let settingsTableViewDelegateInteractor: SettingsTableViewDelegateInteractor
     
-    init(settingsTableViewCellInteractor: SettingsTableViewDataSourceInteractor) {
-        self.settingsTableViewCellInteractor = settingsTableViewCellInteractor
+    init(settingsTableViewDataSourceInteractor: SettingsTableViewDataSourceInteractor, settingsTableViewDelegateInteractor: SettingsTableViewDelegateInteractor) {
+        self.settingsTableViewDataSourceInteractor = settingsTableViewDataSourceInteractor
+        self.settingsTableViewDelegateInteractor = settingsTableViewDelegateInteractor
+    }
+    
+    func didSelectRowAt(indexPath: IndexPath) {
+        settingsTableViewDelegateInteractor.didSelectRowAt(indexPath: indexPath)
     }
     
 }
