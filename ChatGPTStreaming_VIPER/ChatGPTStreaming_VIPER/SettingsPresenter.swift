@@ -9,14 +9,14 @@ import Foundation
 import UIKit
 
 protocol SettingsPresenterInterface {
-    var settingsTableViewCellInteractor: SettingsTableViewCellInteractor { get }
+    var settingsTableViewCellInteractor: SettingsTableViewDataSourceInteractor { get }
 }
 
 class SettingsPresenter: SettingsPresenterInterface {
     
-    let settingsTableViewCellInteractor: SettingsTableViewCellInteractor
+    let settingsTableViewCellInteractor: SettingsTableViewDataSourceInteractor
     
-    init(settingsTableViewCellInteractor: SettingsTableViewCellInteractor) {
+    init(settingsTableViewCellInteractor: SettingsTableViewDataSourceInteractor) {
         self.settingsTableViewCellInteractor = settingsTableViewCellInteractor
     }
     
