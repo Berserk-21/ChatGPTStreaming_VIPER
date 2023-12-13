@@ -11,7 +11,7 @@ class SettingsTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     
-    lazy var titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
