@@ -22,7 +22,9 @@ class SettingsTableViewCellInteractor: SettingsTableViewDataSourceInteractor {
     func cellFor(tableView: UITableView, indexPath: IndexPath) -> SettingsTableViewCell? {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.identifier, for: indexPath) as? SettingsTableViewCell else { return nil }
         
-        cell.titleLabel.text = getSettingsModel()[indexPath.row].title
+        let settingsModel = getSettingsModel()[indexPath.row]
+        
+        cell.configure(with: settingsModel)
         
         return cell
     }
