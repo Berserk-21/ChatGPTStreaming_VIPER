@@ -24,7 +24,7 @@ final class FluidWritingInteractor: FluidWritingInteractorInterface {
     private var completionHandler: ((String) -> Void)?
     
     /// Get a token from tokensList at the currentTokenIndex then use a timer to retrieve each letter at a human readable pace. Increase currentTokenIndex and repeat until all tokens from tokensList have been retrieved.
-    func processFluidWriting() {
+    private func processFluidWriting() {
         
         guard timer == nil else { return }
         
