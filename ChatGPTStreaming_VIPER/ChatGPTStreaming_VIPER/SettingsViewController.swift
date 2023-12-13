@@ -57,13 +57,13 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = presenter.cellFor(tableView: tableView, indexPath: indexPath) else { return UITableViewCell() }
+        guard let cell = presenter.settingsTableViewCellInteractor.cellFor(tableView: tableView, indexPath: indexPath) else { return UITableViewCell() }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return presenter.numberOfRows()
+        return presenter.settingsTableViewCellInteractor.numberOfRows()
     }
 }
