@@ -73,6 +73,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         return presenter.dataSource.numberOfRows
     }
     
+    // MARK: - UITableView Delegate
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.didSelectRowAt(indexPath: indexPath)
     }
