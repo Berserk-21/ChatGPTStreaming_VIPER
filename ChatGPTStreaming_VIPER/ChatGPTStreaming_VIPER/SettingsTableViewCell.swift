@@ -53,7 +53,10 @@ class SettingsTableViewCell: UITableViewCell {
     
     // MARK: - Custom Methods
     
-    func configure(with model: SettingsModel) {
-        titleLabel.text = model.title
+    func configure(with model: AnyModel) {
+        
+        if let settingsModel = model as? SettingsModel {
+            titleLabel.text = settingsModel.title
+        }
     }
 }

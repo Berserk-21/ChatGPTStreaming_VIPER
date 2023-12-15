@@ -18,7 +18,7 @@
 		2C8408F62B28803A00566906 /* FluidWritingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8408F52B28803A00566906 /* FluidWritingInteractor.swift */; };
 		2C8408FA2B28C04F00566906 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8408F92B28C04F00566906 /* SettingsTableViewCell.swift */; };
 		2C8408FC2B28C1E800566906 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8408FB2B28C1E800566906 /* SettingsModel.swift */; };
-		2C8408FE2B28C2D600566906 /* SettingsTableViewDataSourceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8408FD2B28C2D500566906 /* SettingsTableViewDataSourceInteractor.swift */; };
+		2C8408FE2B28C2D600566906 /* ListDataSourceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8408FD2B28C2D500566906 /* ListDataSourceInteractor.swift */; };
 		2C8409002B28C6CE00566906 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8408FF2B28C6CE00566906 /* SettingsPresenter.swift */; };
 		2C8409022B29CAAF00566906 /* SettingsTableViewDelegateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8409012B29CAAF00566906 /* SettingsTableViewDelegateInteractor.swift */; };
 		2CF27B9F2B162C6700F63D09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF27B9E2B162C6700F63D09 /* AppDelegate.swift */; };
@@ -43,7 +43,7 @@
 		2C8408F52B28803A00566906 /* FluidWritingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidWritingInteractor.swift; sourceTree = "<group>"; };
 		2C8408F92B28C04F00566906 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		2C8408FB2B28C1E800566906 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
-		2C8408FD2B28C2D500566906 /* SettingsTableViewDataSourceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSourceInteractor.swift; sourceTree = "<group>"; };
+		2C8408FD2B28C2D500566906 /* ListDataSourceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDataSourceInteractor.swift; sourceTree = "<group>"; };
 		2C8408FF2B28C6CE00566906 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		2C8409012B29CAAF00566906 /* SettingsTableViewDelegateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDelegateInteractor.swift; sourceTree = "<group>"; };
 		2CF27B9B2B162C6700F63D09 /* ChatGPTStreaming_VIPER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatGPTStreaming_VIPER.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,7 +93,7 @@
 				2C8409012B29CAAF00566906 /* SettingsTableViewDelegateInteractor.swift */,
 				2C8408F92B28C04F00566906 /* SettingsTableViewCell.swift */,
 				2C8408FB2B28C1E800566906 /* SettingsModel.swift */,
-				2C8408FD2B28C2D500566906 /* SettingsTableViewDataSourceInteractor.swift */,
+				2C8408FD2B28C2D500566906 /* ListDataSourceInteractor.swift */,
 				2C8408FF2B28C6CE00566906 /* SettingsPresenter.swift */,
 			);
 			name = Settings;
@@ -236,7 +236,7 @@
 				2C8408FC2B28C1E800566906 /* SettingsModel.swift in Sources */,
 				2C8408F62B28803A00566906 /* FluidWritingInteractor.swift in Sources */,
 				2CF27BBD2B163B1400F63D09 /* Presenter.swift in Sources */,
-				2C8408FE2B28C2D600566906 /* SettingsTableViewDataSourceInteractor.swift in Sources */,
+				2C8408FE2B28C2D600566906 /* ListDataSourceInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

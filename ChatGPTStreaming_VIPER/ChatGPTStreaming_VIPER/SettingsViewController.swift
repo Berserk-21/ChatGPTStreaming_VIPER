@@ -57,14 +57,20 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = presenter.settingsTableViewDataSourceInteractor.cellFor(tableView: tableView, indexPath: indexPath) else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.identifier, for: indexPath) as? SettingsTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        let data = presenter.dataSource.dataForItem(at: indexPath)
+        
+        cell.configure(with: data)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return presenter.settingsTableViewDataSourceInteractor.numberOfRows()
+        return presenter.dataSource.numberOfRows
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

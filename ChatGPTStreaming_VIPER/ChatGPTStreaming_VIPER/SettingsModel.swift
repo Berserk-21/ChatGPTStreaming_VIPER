@@ -7,7 +7,13 @@
 
 import Foundation
 
-struct SettingsModel {
+
+// Je ne sais pas si ce niveau d'abstraction est nécessaire ?
+protocol AnyModel {
+    
+}
+
+struct SettingsModel: AnyModel {
     let title: String
 }
 
