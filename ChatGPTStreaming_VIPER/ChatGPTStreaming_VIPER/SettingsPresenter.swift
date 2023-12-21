@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 protocol SettingsPresenterInterface {
     var dataSource: ListDataSourceInterface { get }
@@ -19,7 +18,7 @@ class SettingsPresenter: SettingsPresenterInterface {
     
     let settingsTableViewDelegateInteractor: SettingsTableViewDelegateInteractor
     
-    init(listDataSourceInteractor: ListDataSourceInteractor, settingsTableViewDelegateInteractor: SettingsTableViewDelegateInteractor) {
+    init(listDataSourceInteractor: SettingsDataSourceInteractor, settingsTableViewDelegateInteractor: SettingsTableViewDelegateInteractor) {
         self.dataSource = listDataSourceInteractor
         self.settingsTableViewDelegateInteractor = settingsTableViewDelegateInteractor
     }

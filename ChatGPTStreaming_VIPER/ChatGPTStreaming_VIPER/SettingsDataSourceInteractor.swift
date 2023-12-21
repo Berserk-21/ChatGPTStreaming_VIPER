@@ -6,14 +6,16 @@
 //
 
 import Foundation
-import UIKit
 
+// On fait un fichier séparer pour les protocol top niveau comme lui ?
 protocol ListDataSourceInterface {
     func dataForItem(at indexPath: IndexPath) -> AnyModel
     var numberOfRows: Int { get }
 }
 
-class ListDataSourceInteractor: ListDataSourceInterface {
+protocol SettingsDataSourceInterface: ListDataSourceInterface {}
+
+class SettingsDataSourceInteractor: SettingsDataSourceInterface {
     
     var numberOfRows: Int {
         return getSettingsModel().count
