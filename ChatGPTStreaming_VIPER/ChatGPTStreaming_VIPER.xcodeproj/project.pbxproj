@@ -20,7 +20,6 @@
 		2C8408FC2B28C1E800566906 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8408FB2B28C1E800566906 /* SettingsModel.swift */; };
 		2C8408FE2B28C2D600566906 /* SettingsDataSourceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8408FD2B28C2D500566906 /* SettingsDataSourceInteractor.swift */; };
 		2C8409002B28C6CE00566906 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8408FF2B28C6CE00566906 /* SettingsPresenter.swift */; };
-		2C8409022B29CAAF00566906 /* SettingsTableViewDelegateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8409012B29CAAF00566906 /* SettingsTableViewDelegateInteractor.swift */; };
 		2CF27B9F2B162C6700F63D09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF27B9E2B162C6700F63D09 /* AppDelegate.swift */; };
 		2CF27BA12B162C6700F63D09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF27BA02B162C6700F63D09 /* SceneDelegate.swift */; };
 		2CF27BA32B162C6700F63D09 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF27BA22B162C6700F63D09 /* RootViewController.swift */; };
@@ -45,7 +44,6 @@
 		2C8408FB2B28C1E800566906 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		2C8408FD2B28C2D500566906 /* SettingsDataSourceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDataSourceInteractor.swift; sourceTree = "<group>"; };
 		2C8408FF2B28C6CE00566906 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
-		2C8409012B29CAAF00566906 /* SettingsTableViewDelegateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDelegateInteractor.swift; sourceTree = "<group>"; };
 		2CF27B9B2B162C6700F63D09 /* ChatGPTStreaming_VIPER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatGPTStreaming_VIPER.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF27B9E2B162C6700F63D09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CF27BA02B162C6700F63D09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,7 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				2C6B18C82B2242C700513A8B /* SettingsViewController.swift */,
-				2C8409012B29CAAF00566906 /* SettingsTableViewDelegateInteractor.swift */,
 				2C8408F92B28C04F00566906 /* SettingsTableViewCell.swift */,
 				2C8408FB2B28C1E800566906 /* SettingsModel.swift */,
 				2C8408FD2B28C2D500566906 /* SettingsDataSourceInteractor.swift */,
@@ -231,7 +228,6 @@
 				2C6B18B92B2222A400513A8B /* StreamingError.swift in Sources */,
 				2C8408F22B286C4800566906 /* ParsingInteractor.swift in Sources */,
 				2C8409002B28C6CE00566906 /* SettingsPresenter.swift in Sources */,
-				2C8409022B29CAAF00566906 /* SettingsTableViewDelegateInteractor.swift in Sources */,
 				2CF27BA12B162C6700F63D09 /* SceneDelegate.swift in Sources */,
 				2C8408FC2B28C1E800566906 /* SettingsModel.swift in Sources */,
 				2C8408F62B28803A00566906 /* FluidWritingInteractor.swift in Sources */,

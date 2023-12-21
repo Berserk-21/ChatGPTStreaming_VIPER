@@ -76,6 +76,6 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - UITableView Delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.didSelectRowAt(indexPath: indexPath)
+        print("did Select row \(indexPath.row)")
     }
 }

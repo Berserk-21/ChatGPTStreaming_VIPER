@@ -7,7 +7,7 @@
 
 import Foundation
 
-// On fait un fichier séparer pour les protocol top niveau comme lui ?
+// On fait un fichier séparé pour les protocol top niveau comme lui ?
 protocol ListDataSourceInterface {
     func dataForItem(at indexPath: IndexPath) -> AnyModel
     var numberOfRows: Int { get }

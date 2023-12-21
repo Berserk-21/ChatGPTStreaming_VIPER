@@ -9,23 +9,14 @@ import Foundation
 
 protocol SettingsPresenterInterface {
     var dataSource: ListDataSourceInterface { get }
-    func didSelectRowAt(indexPath: IndexPath)
 }
 
 class SettingsPresenter: SettingsPresenterInterface {
 
     let dataSource: ListDataSourceInterface
     
-    let settingsTableViewDelegateInteractor: SettingsTableViewDelegateInteractor
-    
-    init(listDataSourceInteractor: SettingsDataSourceInteractor, settingsTableViewDelegateInteractor: SettingsTableViewDelegateInteractor) {
+    init(listDataSourceInteractor: SettingsDataSourceInteractor) {
         self.dataSource = listDataSourceInteractor
-        self.settingsTableViewDelegateInteractor = settingsTableViewDelegateInteractor
     }
-    
-    func didSelectRowAt(indexPath: IndexPath) {
-        settingsTableViewDelegateInteractor.didSelectRowAt(indexPath: indexPath)
-    }
-    
 }
 
