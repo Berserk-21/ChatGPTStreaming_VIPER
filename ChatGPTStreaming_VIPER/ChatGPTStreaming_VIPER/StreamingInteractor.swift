@@ -37,11 +37,14 @@ final class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSess
         if urlSession == nil {
             urlSession = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
         }
+        
+        let model = getModel()
+        let role = getRole()
                 
         let requestData: [String: Any] = [
-            "model": GPTModel.gpt4.modelName,
+            "model": model,
             "messages": [
-                ["role": "system", "content": GPTRole.shakespeare.content],
+                ["role": "system", "content": role],
                 ["role": "user", "content": input]
             ],
             "stream": true
@@ -92,8 +95,9 @@ final class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSess
         completionHandler = nil
     }
     
-    // Helper Methods
+    // MARK: - Helper Methods
     
+    /// Use this method to get the config plist containing the openai api key.
     private func getConfigPlist() -> ConfigPlistModel? {
         
         guard let configUrl = Bundle.main.url(forResource: "Config", withExtension: "plist") else { return nil }
@@ -107,5 +111,24 @@ final class StreamingInteractor: NSObject, StreamingInteractorInterface, URLSess
         }
         
         return nil
+    }
+    
+    /// Use this method to get the chat gpt model used in the streaming request.
+    private func getModel() -> String {
+        
+        if let modelType: Int = UserDefaults.standard.value(forKey: SettingsConstants.UserDefaults.gptModelKey) as? Int, let modelName = GPTModel(rawValue: modelType)?.description {
+            return modelName
+        } else {
+            return GPTModel.gpt3.description
+        }
+    }
+    
+    /// Use this method to get the chat gpt role used in the streaming request.
+    private func getRole() -> String {
+        if let roleType = UserDefaults.standard.value(forKey: SettingsConstants.UserDefaults.gptRoleKey) as? Int, let roleDescription = GPTRole(rawValue: roleType)?.description {
+            return roleDescription
+        } else {
+            return GPTRole.shakespeare.description
+        }
     }
 }

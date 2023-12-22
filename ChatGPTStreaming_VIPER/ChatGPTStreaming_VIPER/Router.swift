@@ -32,7 +32,8 @@ final class Router: AnyRouter {
     
     func pushToNextModule(on navigationController: UINavigationController) {
         
-        let settingsVC = SettingsViewController()
+        let settingsPresenter = SettingsPresenter(listDataSourceInteractor: SettingsDataSourceInteractor())
+        let settingsVC = SettingsViewController(presenter: settingsPresenter)
         navigationController.pushViewController(settingsVC, animated: true)
     }
 }
