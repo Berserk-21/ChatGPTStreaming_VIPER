@@ -9,6 +9,8 @@ import UIKit
 
 class SettingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    // MARK: - Properties
+    
     private lazy var tableView: UITableView = {
         let tv = UITableView()
         tv.translatesAutoresizingMaskIntoConstraints = false
@@ -19,6 +21,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }()
     
     private let presenter: SettingsPresenterInterface
+    
+    // MARK: - Life Cycle
     
     init(presenter: SettingsPresenterInterface) {
         self.presenter = presenter
@@ -31,15 +35,25 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .white
-        
+                
         setupLayout()
+        
+        presenter.dataSource.getSettingsModels { [weak self] success in
+            if success {
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            } else {
+                // Handle error layout
+            }
+        }
     }
     
     // MARK: - Layout
     
     private func setupLayout() {
+        
+        view.backgroundColor = .white
         
         view.addSubview(tableView)
         
@@ -61,9 +75,9 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             return UITableViewCell()
         }
         
-        let data = presenter.dataSource.dataForItem(at: indexPath)
-        
-        cell.configure(with: data)
+        if let data = presenter.dataSource.dataForItem(at: indexPath) {
+            cell.configure(with: data)
+        }
         
         return cell
     }
@@ -76,6 +90,11 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - UITableView Delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("did Select row \(indexPath.row)")
+        
+        presenter.dataSource.updateSettingsAt(indexPath: indexPath) { [weak self] success in
+            if success {
+                self?.tableView.reloadRows(at: [indexPath], with: .fade)
+            }
+        }
     }
 }

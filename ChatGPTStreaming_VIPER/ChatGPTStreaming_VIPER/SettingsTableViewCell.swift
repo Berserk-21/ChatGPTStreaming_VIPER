@@ -55,8 +55,32 @@ class SettingsTableViewCell: UITableViewCell {
     
     func configure(with model: AnyModel) {
         
-        if let settingsModel = model as? SettingsModel {
-            titleLabel.text = settingsModel.title
+        if let settingsModel = model as? SettingsCellModel {
+            
+            let titleString: String = settingsModel.type == .model ? "model" : "role"
+            var contentString: String?
+            
+            switch settingsModel.type {
+            case .model:
+                if let title = GPTModel(rawValue: settingsModel.titleType)?.title {
+                    contentString = title
+                }
+            case .role:
+                if let title = GPTRole(rawValue: settingsModel.titleType)?.title {
+                    contentString = title
+                }
+            }
+            
+            if let unwrappedContentString = contentString {
+                let title = NSAttributedString(string: titleString + ": ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16.0, weight: .medium)])
+                            
+                let content = NSAttributedString(string: unwrappedContentString, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16.0, weight: .regular)])
+                
+                let mutableAttributedText = NSMutableAttributedString(attributedString: title)
+                mutableAttributedText.append(content)
+                
+                titleLabel.attributedText = mutableAttributedText
+            }
         }
     }
 }

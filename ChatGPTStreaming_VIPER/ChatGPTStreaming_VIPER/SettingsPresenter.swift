@@ -8,12 +8,12 @@
 import Foundation
 
 protocol SettingsPresenterInterface {
-    var dataSource: ListDataSourceInterface { get }
+    var dataSource: SettingsDataSourceInterface { get }
 }
 
 class SettingsPresenter: SettingsPresenterInterface {
 
-    let dataSource: ListDataSourceInterface
+    let dataSource: SettingsDataSourceInterface
     
     init(listDataSourceInteractor: SettingsDataSourceInteractor) {
         self.dataSource = listDataSourceInteractor
